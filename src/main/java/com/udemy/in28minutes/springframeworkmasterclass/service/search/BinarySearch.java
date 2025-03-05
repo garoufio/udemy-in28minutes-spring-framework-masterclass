@@ -3,11 +3,15 @@ package com.udemy.in28minutes.springframeworkmasterclass.service.search;
 import com.udemy.in28minutes.springframeworkmasterclass.service.sort.SortAlgorithmImpl;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 @Getter
 @Setter
 public class BinarySearch implements SearchAlgorithmImpl {
   
+  @Autowired
   private SortAlgorithmImpl sortAlgorithm;
   private final String NAME = this.getClass().getName();
   
@@ -37,14 +41,11 @@ public class BinarySearch implements SearchAlgorithmImpl {
     int[] sortedArray = sortAlgorithm.sort(array);
     if (sortedArray == null) return -1;
     
-    //{12, 10, -1, 3, 20}
-    //{-1, 3, 10, 12, 20}
-    
     int low = 0;
     int high = sortedArray.length - 1;
     int mid;
     while (low <= high) {
-      mid = (high - low + 1) / 2;
+      mid = (high + low) / 2;
       
       if (target > sortedArray[mid]) {
         low = mid + 1;
@@ -56,7 +57,7 @@ public class BinarySearch implements SearchAlgorithmImpl {
         return mid;
       }
     }
-    return -1;
+    return -low - 1;
   }
   
   //-------------------------------------------------------------------------------------------------------------------
