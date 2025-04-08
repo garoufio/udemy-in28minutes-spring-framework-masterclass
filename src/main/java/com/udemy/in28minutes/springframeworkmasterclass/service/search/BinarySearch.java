@@ -1,30 +1,25 @@
 package com.udemy.in28minutes.springframeworkmasterclass.service.search;
 
 import com.udemy.in28minutes.springframeworkmasterclass.service.sort.SortAlgorithmImpl;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
+@Component
 public class BinarySearch implements SearchAlgorithmImpl {
-  
+
+  private final String NAME = this.getClass().getName();
+
   @Autowired
   private SortAlgorithmImpl sortAlgorithm;
-  private final String NAME = this.getClass().getName();
-  
-  //-------------------------------------------------------------------------------------------------------------------
-  
-  public BinarySearch() { }
-  
-  //-------------------------------------------------------------------------------------------------------------------
-  
-  public BinarySearch(SortAlgorithmImpl sortAlgorithm) {
-    this.sortAlgorithm = sortAlgorithm;
-  }
-  
+
   //-------------------------------------------------------------------------------------------------------------------
   
   @Override
@@ -33,7 +28,7 @@ public class BinarySearch implements SearchAlgorithmImpl {
       System.out.printf("[%s] Array is null or empty\n", NAME.substring(NAME.lastIndexOf('.') + 1));
       return -1;
     }
-    else if (sortAlgorithm == null) {
+    if (sortAlgorithm == null) {
       System.out.printf("[%s] SortAlgorithm is null", NAME.substring(NAME.lastIndexOf('.') + 1));
       return -1;
     }

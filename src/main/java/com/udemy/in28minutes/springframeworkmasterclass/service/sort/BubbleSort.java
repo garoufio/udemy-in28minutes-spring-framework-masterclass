@@ -3,8 +3,8 @@ package com.udemy.in28minutes.springframeworkmasterclass.service.sort;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-@Component
 @Primary
+@Component
 public class BubbleSort implements SortAlgorithmImpl {
   
   /* sort in ascending order */
@@ -31,5 +31,7 @@ public class BubbleSort implements SortAlgorithmImpl {
     }
     return sortedArray;
   }
+
+  //-------------------------------------------------------------------------------------------------------------------
   
 }

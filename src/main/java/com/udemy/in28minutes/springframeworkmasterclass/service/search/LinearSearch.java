@@ -1,30 +1,18 @@
 package com.udemy.in28minutes.springframeworkmasterclass.service.search;
 
-import com.udemy.in28minutes.springframeworkmasterclass.service.sort.SortAlgorithmImpl;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
+@NoArgsConstructor
 @Getter
 @Setter
+@Component
 public class LinearSearch implements SearchAlgorithmImpl {
-  
-  @Autowired
-  private SortAlgorithmImpl sortAlgorithm;
+
   private final String NAME = this.getClass().getName();
-  
-  //-------------------------------------------------------------------------------------------------------------------
-  
-  public LinearSearch() {  }
-  
-  //-------------------------------------------------------------------------------------------------------------------
-  
-  public LinearSearch(SortAlgorithmImpl sortAlgorithm) {
-    this.sortAlgorithm = sortAlgorithm;
-  }
-  
+
   //-------------------------------------------------------------------------------------------------------------------
   
   @Override

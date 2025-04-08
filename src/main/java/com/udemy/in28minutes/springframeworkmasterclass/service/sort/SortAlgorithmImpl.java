@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 @Component
 public interface SortAlgorithmImpl {
   
-  public int[] sort(int[] array);
+  int[] sort(int[] array);
+
+  //-------------------------------------------------------------------------------------------------------------------
   
 }
