@@ -1,33 +1,37 @@
 package com.udemy.in28minutes.springframeworkmasterclass;
 
+import com.udemy.in28minutes.springframeworkmasterclass.scope.dao.PersonDao;
 import com.udemy.in28minutes.springframeworkmasterclass.service.search.BinarySearch;
-//import com.udemy.in28minutes.springframeworkmasterclass.service.search.LinearSearch;
-import com.udemy.in28minutes.springframeworkmasterclass.service.search.SearchAlgorithmImpl;
-//import com.udemy.in28minutes.springframeworkmasterclass.service.sort.BubbleSort;
-//import com.udemy.in28minutes.springframeworkmasterclass.service.sort.SelectionSort;
+import com.udemy.in28minutes.springframeworkmasterclass.service.search.LinearSearch;
+import com.udemy.in28minutes.springframeworkmasterclass.service.search.SearchAlgorithm;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-//import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-//@ComponentScan("com.udemy.in28minutes.springframeworkmasterclass.service.search")
-//@ComponentScan("com.udemy.in28minutes.springframeworkmasterclass.service.sort")
-//@ComponentScan("com.udemy.in28minutes.springframeworkmasterclass.service.sort")
 public class SpringFrameworkMasterclassApplication {
-
-    public static void main(String[] args) {
-//        SearchAlgorithmImpl searchAlgorithm = new BinarySearch();
-//        ((BinarySearch) searchAlgorithm).setSortAlgorithm(new SelectionSort());
-        
-        ApplicationContext applicationContext =
-            SpringApplication.run(SpringFrameworkMasterclassApplication.class, args);
-        SearchAlgorithmImpl searchAlgorithm =
-            (BinarySearch)applicationContext.getBean(BinarySearch.class);
-            //(LinearSearch)applicationContext.getBean(LinearSearch.class);
-        
-        int result = searchAlgorithm.search(new int[] {12, 10, -1, 3, 20}, 12);
-        System.out.println(result);
-    }
-
+  
+  private static Logger logger = LoggerFactory.getLogger(SpringFrameworkMasterclassApplication.class);
+  
+  //-------------------------------------------------------------------------------------------------------------------
+  
+  public static void main(String[] args) {
+    ApplicationContext applicationContext =
+        SpringApplication.run(SpringFrameworkMasterclassApplication.class, args);
+    
+    // search using BinarySearch algorithm
+    SearchAlgorithm searchAlgorithm = applicationContext.getBean(BinarySearch.class);
+    int result = searchAlgorithm.search(new int[] {12, 10, -1, 3, 20}, 12);
+    logger.info("{}", "Using BinarySearch: " + result);
+    
+    // search using LinearSearch algorithm
+    searchAlgorithm = applicationContext.getBean(LinearSearch.class);
+    result = searchAlgorithm.search(new int[] {12, 10, -1, 3, 20}, 12);
+    logger.info("{}", "Using LinearSearch: " + result);
+  }
+  
+  //-------------------------------------------------------------------------------------------------------------------
+  
 }

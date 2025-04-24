@@ -1,9 +1,13 @@
 package com.udemy.in28minutes.springframeworkmasterclass.service.sort;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SelectionSort implements SortAlgorithmImpl {
+//@Primary
+@Qualifier("selection") // Primary annotation is preferred over the autowiring by name or by @Qualifier
+public class SelectionSort implements SortAlgorithm {
   
   /* sort in ascending order */
   @Override
