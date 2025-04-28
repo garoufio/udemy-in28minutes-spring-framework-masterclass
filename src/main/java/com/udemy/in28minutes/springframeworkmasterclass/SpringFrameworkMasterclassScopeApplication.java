@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+
+import java.util.Arrays;
 //import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
@@ -28,6 +30,8 @@ public class SpringFrameworkMasterclassScopeApplication {
     PersonDao personDao2 = applicationContext.getBean(PersonDao.class);
     logger.info("{}", personDao2);
     logger.info("{}", personDao2.getJdbcConnection());
+    
+    logger.info("Beans loaded -> {}", applicationContext.getBeanDefinitionNames());
   }
   
   //-------------------------------------------------------------------------------------------------------------------

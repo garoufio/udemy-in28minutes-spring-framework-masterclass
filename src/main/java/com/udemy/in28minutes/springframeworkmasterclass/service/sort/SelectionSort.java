@@ -1,7 +1,7 @@
 package com.udemy.in28minutes.springframeworkmasterclass.service.sort;
 
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
+//import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
