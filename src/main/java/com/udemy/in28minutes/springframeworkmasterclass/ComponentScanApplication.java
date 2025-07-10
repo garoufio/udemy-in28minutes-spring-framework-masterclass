@@ -10,15 +10,15 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan("com.udemy.in28minutes.componentscan.scope")
-public class SpringFrameworkMasterclassComponentScanApplication {
+public class ComponentScanApplication {
   
-  private static Logger logger = LoggerFactory.getLogger(SpringFrameworkMasterclassComponentScanApplication.class);
+  private static Logger logger = LoggerFactory.getLogger(ComponentScanApplication.class);
   
   //-------------------------------------------------------------------------------------------------------------------
   
   public static void main(String[] args) {
     ApplicationContext applicationContext =
-        SpringApplication.run(SpringFrameworkMasterclassComponentScanApplication.class, args);
+        SpringApplication.run(ComponentScanApplication.class, args);
     
     // test scope: ComponentDao is a singleton and JdbcConnection is a prototype
     ComponentDao componentDao = applicationContext.getBean(ComponentDao.class);

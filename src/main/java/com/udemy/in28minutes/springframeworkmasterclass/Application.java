@@ -1,6 +1,5 @@
 package com.udemy.in28minutes.springframeworkmasterclass;
 
-import com.udemy.in28minutes.springframeworkmasterclass.scope.dao.PersonDao;
 import com.udemy.in28minutes.springframeworkmasterclass.service.search.BinarySearch;
 import com.udemy.in28minutes.springframeworkmasterclass.service.search.LinearSearch;
 import com.udemy.in28minutes.springframeworkmasterclass.service.search.SearchAlgorithm;
@@ -11,15 +10,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
-public class SpringFrameworkMasterclassApplication {
+public class Application {
   
-  private static Logger logger = LoggerFactory.getLogger(SpringFrameworkMasterclassApplication.class);
+  private static Logger logger = LoggerFactory.getLogger(Application.class);
   
   //-------------------------------------------------------------------------------------------------------------------
   
   public static void main(String[] args) {
     ApplicationContext applicationContext =
-        SpringApplication.run(SpringFrameworkMasterclassApplication.class, args);
+        SpringApplication.run(Application.class, args);
     
     // search using BinarySearch algorithm
     SearchAlgorithm searchAlgorithm = applicationContext.getBean(BinarySearch.class);

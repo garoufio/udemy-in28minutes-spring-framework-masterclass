@@ -6,20 +6,18 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-
-import java.util.Arrays;
 //import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-public class SpringFrameworkMasterclassScopeApplication {
+public class ScopeApplication {
   
-  private static Logger logger = LoggerFactory.getLogger(SpringFrameworkMasterclassScopeApplication.class);
+  private static Logger logger = LoggerFactory.getLogger(ScopeApplication.class);
   
   //-------------------------------------------------------------------------------------------------------------------
   
   public static void main(String[] args) {
     ApplicationContext applicationContext =
-        SpringApplication.run(SpringFrameworkMasterclassScopeApplication.class, args);
+        SpringApplication.run(ScopeApplication.class, args);
 
     // test scope: PersonDao is a singleton and JdbcConnection is a prototype
     PersonDao personDao = applicationContext.getBean(PersonDao.class);
